@@ -1,0 +1,14 @@
+-------------------------------------------------------------------------------
+Test set: TestSuite
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 12.933 s <<< FAILURE! - in TestSuite
+api.testcases.UserTestDD.createTestUser  Time elapsed: 1.693 s  <<< FAILURE!
+org.testng.TestNGException: 
+
+Method public void api.testcases.UserTestDD.createTestUser(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String) requires a @DataProvider named : Alldata in class api.utilities.DataProviders
+
+api.testcases.UserTestDD.testDeleteUser  Time elapsed: 1.695 s  <<< FAILURE!
+org.testng.TestNGException: 
+
+Method public void api.testcases.UserTestDD.testDeleteUser(java.lang.String) requires a @DataProvider named : UserNameData in class api.utilities.DataProviders
+
