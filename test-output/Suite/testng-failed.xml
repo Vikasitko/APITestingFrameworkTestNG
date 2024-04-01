@@ -8,8 +8,9 @@
     <classes>
       <class name="api.testcases.UserTestDD">
         <methods>
-          <include name="testDeleteUser"/>
-          <include name="createTestUser"/>
+          <include name="testCreateUser" invocation-numbers="0 1 2"/>
+          <include name="testDeleteUser" invocation-numbers="0 1 2"/>
+          <include name="testGetUserData" invocation-numbers="0 1 2"/>
         </methods>
       </class> <!-- api.testcases.UserTestDD -->
     </classes>

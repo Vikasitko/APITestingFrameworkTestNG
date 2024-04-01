@@ -1,5 +1,7 @@
 package api.testcases;
 
+
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -9,47 +11,68 @@ import api.utilities.DataProviders;
 import io.restassured.response.Response;
 
 public class UserTestDD {
+
+
 	
-	@Test(priority=1,dataProvider="Alldata",dataProviderClass= DataProviders.class)
-	public void createTestUser(String userId,String userName, String fName, String lName, String email, String pwd, String phone )
+	@Test(priority=1,dataProvider = "AllData", dataProviderClass = DataProviders.class)
+	public void testCreateUser(String userId, String UserName, String fname, String lname, String email, String pwd, String phone)
 	{
+
+		User userPayload = new User();
+
+		//userPayload.setId(Integer.parseInt(userId));
+		//userPayload.setId(userId);
+		userPayload.setUsername(UserName);
+		userPayload.setFirstName(fname);
+		userPayload.setLastName(lname);
+		userPayload.setEmail(lname);
+		userPayload.setPassword(email);
+		//userPayload.setPhone(phone);
 		
-         User userPayload = new User();
-		
-		userPayload.setId(Integer.parseInt(userId));
-		userPayload.setUsername(userName);
-		userPayload.setFirstName(fName);
-		userPayload.setLastName(lName);
-		userPayload.setEmail(email);
-		userPayload.setPassword(pwd);
-		userPayload.setPhone(phone);
-		
-		Response response  = UserEndPoints.createUser(userPayload);
-		
-		System.out.println("Create user data");
+		Response response = UserEndPoints.createUser(userPayload);
+
 		//log response
 		response.then().log().all();
-		
-		//Validation
-		
-		Assert.assertEquals(response.getStatusCode(), 200);
-	}
-	
 
-	@Test(priority=2,dataProvider="UserNameData",dataProviderClass= DataProviders.class)
+
+		//validation
+		Assert.assertEquals(response.getStatusCode(),200);
+	}
+
+	@Test(priority=3,dataProvider = "UserNamesData", dataProviderClass = DataProviders.class)
 	public void testDeleteUser(String username)
 	{
-		
-		Response response  = UserEndPoints.deleteUser(username);
-		
-		System.out.println("Delete user data");
+
+		Response response = UserEndPoints.deleteUser(username);
+
+		System.out.println("Delete User Data.");
+
 		//log response
 		response.then().log().all();
-		
-		//Validation
-		
-		Assert.assertEquals(response.getStatusCode(), 200);
+
+
+		//validation
+		Assert.assertEquals(response.getStatusCode(),200);
+
+
+
 	}
 
+	@Test(priority=2,dataProvider = "UserNamesData", dataProviderClass = DataProviders.class)
+	public void testGetUserData(String username)
+	{
 
+		Response response = UserEndPoints.getUser(username);
+
+		//System.out.println("Get User Data.");
+
+		//log response
+		response.then().log().all();
+
+
+		//validation
+		Assert.assertEquals(response.getStatusCode(),200);
+
+
+	}
 }

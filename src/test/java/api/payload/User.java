@@ -1,28 +1,18 @@
 package api.payload;
 
 public class User {
-	//create pojo class
-	/*{
-  "id": 0,
-  "username": "string",
-  "firstName": "string",
-  "lastName": "string",
-  "email": "string",
-  "password": "string",
-  "phone": "string",
-  "userStatus": 0
-}*/
+//POJO - Plain old Java Object
 	
 	  int id;
 	  String username;
 	  String firstName;
 	  String lastName;
 	  String email;
-	  String password;
-	  String phone;
-	  int userStatus =0;
-	 
-	 
+	 String password;
+	 String phone;
+	  int userStatus=0;
+	  
+	  
 	public int getId() {
 		return id;
 	}
@@ -71,8 +61,7 @@ public class User {
 	public void setUserStatus(int userStatus) {
 		this.userStatus = userStatus;
 	}
-	 
-	 
-	
+	  
+	  
 
 }

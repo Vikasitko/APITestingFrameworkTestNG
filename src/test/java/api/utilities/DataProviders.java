@@ -31,7 +31,7 @@ public class DataProviders {
 	@DataProvider(name="UserNamesData")
 	public String [] UserNamesDataProvider()
 	{
-		String fName = System.getProperty("user.dir")+"\\TestData\\TestData.xlsx";
+		String fName = System.getProperty("user.dir")+"//TestData//TestData.xlsx";
 		
 		int ttlRowCnt = ReadExcelFile.getRowCount(fName, "Sheet1");
 	//	int ttlColCnt= ReadExcelFile.getColCount(fName, "Sheet1");
